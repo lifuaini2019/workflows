@@ -1,0 +1,15 @@
+name: Deploy App
+on:
+  push:
+    branches:
+      - main # 修改成你的默认分支
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./ # 修改成你的APP文件夹
